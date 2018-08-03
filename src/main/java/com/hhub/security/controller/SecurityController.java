@@ -4,12 +4,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path="/users")
+@RequestMapping(value="/users")
 public class SecurityController {
 
-    @RequestMapping(method= RequestMethod.GET, path="/create" )
-    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(method = RequestMethod.GET, value = "/count")
     @ResponseBody
+    @ResponseStatus(value = HttpStatus.OK)
     public String testRoute(){
         try {
             return "testRoute";
