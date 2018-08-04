@@ -20,8 +20,8 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 @PropertySource({ "classpath:application.properties" })
-@ComponentScan({ "org.hhub.security.models" })
-@EnableJpaRepositories(basePackages = "org.hhub.security.dao")
+@ComponentScan({ "com.hhub.security.models" })
+@EnableJpaRepositories(basePackages = "com.hhub.security.dao")
 public class HibernateConf {
 
     @Autowired
