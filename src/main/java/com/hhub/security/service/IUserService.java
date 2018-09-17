@@ -2,6 +2,7 @@ package com.hhub.security.service;
 
 import java.io.UnsupportedEncodingException;
 import java.util.List;
+import java.util.Optional;
 
 import com.hhub.security.dto.UserDto;
 import com.hhub.security.error.UserAlreadyExistException;
@@ -33,7 +34,7 @@ public interface IUserService {
 
     User getUserByPasswordResetToken(String token);
 
-    User getUserByID(long id);
+    Optional<User> getUserByID(long id);
 
     void changeUserPassword(User user, String password);
 
