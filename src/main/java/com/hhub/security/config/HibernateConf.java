@@ -46,16 +46,6 @@ public class HibernateConf {
     }
 
     @Bean
-    public LocalSessionFactoryBean sessionFactory() {
-        final LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-        sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(new String[] { "com.hhub.security.models" });
-        sessionFactory.setHibernateProperties(hibernateProperties());
-
-        return sessionFactory;
-    }
-
-    @Bean
     public DataSource dataSource() {
 
         final DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -73,21 +63,6 @@ public class HibernateConf {
         return new PersistenceExceptionTranslationPostProcessor();
     }
 
-//       Properties additionalProperties() {
-//           Properties properties = new Properties();
-//           properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
-//           properties.setProperty(
-//             "hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
-//            
-//           return properties;
-//       }
-
-    @Bean
-    public PlatformTransactionManager hibernateTransactionManager() {
-        final HibernateTransactionManager transactionManager = new HibernateTransactionManager();
-        transactionManager.setSessionFactory(sessionFactory().getObject());
-        return transactionManager;
-    }
 
     private final Properties hibernateProperties() {
         final Properties hibernateProperties = new Properties();
